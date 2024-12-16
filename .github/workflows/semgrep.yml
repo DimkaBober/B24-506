@@ -1,13 +1,10 @@
-# название вашего action
 name: Semgrep
-# условия выполнения action - при внесении изменений в ветки main и test
+
 on:
   push:
     branches:
       - main
       - test
-      - daniil
-# содержание action - создание и выполнение контейнера с анализатором
 
 jobs:
   semgrep:
@@ -15,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: semgrep/semgrep
+
     steps:
       - uses: actions/checkout@v4
       - run: semgrep ci
-      env:
-        SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }} # секрет из
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
