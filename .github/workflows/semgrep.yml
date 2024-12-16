@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - test
+      - daniil
 # содержание action - создание и выполнение контейнера с анализатором
 semgrep
 jobs:
